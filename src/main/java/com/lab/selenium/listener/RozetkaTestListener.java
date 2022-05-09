@@ -40,5 +40,6 @@ public class RozetkaTestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext iTestContext) {
+       logger.info("The test is finished");
     }
 }

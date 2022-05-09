@@ -4,10 +4,9 @@ import com.lab.selenium.actions.BuyActions;
 import com.lab.selenium.actions.FilteringActions;
 import com.lab.selenium.actions.NavigationActions;
 import com.lab.selenium.actions.SearchingActions;
+import com.lab.selenium.asserts.PriceAsserter;
 import com.lab.selenium.model.Filter;
-import com.lab.selenium.page.ShoppingCartPage;
 import com.lab.selenium.util.FileReader;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -30,16 +29,13 @@ public class RozetkaTest extends  BaseTest {
         SearchingActions searchingActions = new SearchingActions();
         FilteringActions filteringActions = new FilteringActions();
         BuyActions buyActions = new BuyActions();
-        //PriceAsserter priceAsserter = new PriceAsserter();
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
+        PriceAsserter priceAsserter = new PriceAsserter();
         navigationActions.navigateToHomePage();
         searchingActions.searchProduct(filter.getName());
         filteringActions.filteringProduct(filter.getBrand());
         buyActions.buyItem();
-        //priceAsserter.compareThatThePriceHigherThenGivenSum(filter);
+        priceAsserter.compareThatThePriceHigherThenGivenSum(filter.getSum());
 
-
-       Assert.assertTrue(Integer.parseInt(shoppingCartPage.getPriceOfItem()) > Integer.parseInt(filter.getSum()));
     }
 }
 
