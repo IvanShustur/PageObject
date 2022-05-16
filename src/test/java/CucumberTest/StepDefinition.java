@@ -5,6 +5,7 @@ import com.lab.selenium.page.HomePage;
 import com.lab.selenium.page.ItemPage;
 import com.lab.selenium.page.SearchResultPage;
 import com.lab.selenium.page.ShoppingCartPage;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -24,6 +25,9 @@ public class StepDefinition {
     public void testSetup(){
        driver.manage().window().maximize();
     }
+    @After
+    public void closeDriver(){driver.quit();}
+
     @Given("User opens {string} page")
     public void openPage(final String url){
         driver.get(url);

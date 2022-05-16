@@ -9,6 +9,5 @@ Feature: Buy some item
 
 
     Examples:
-      | homePage               | name      | number |
-      | https://rozetka.com.ua | ноутбуки  |   1    |
-
+      | homePage               | name        | number |
+      | https://rozetka.com.ua | ноутбуки    |   1    |
