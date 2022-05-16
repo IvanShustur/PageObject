@@ -22,6 +22,9 @@ public class ItemPage extends BasePage {
     @FindBy(xpath = "//img[@alt='Rozetka Logo']")
     private Label rozetkaLogo;
 
+    @FindBy (xpath = "//button//span[@class='counter counter--green ng-star-inserted']")
+    private Button cartButton;
+
 
 
     public void clickOnAddToCartButton(){
@@ -37,5 +40,19 @@ public class ItemPage extends BasePage {
         openCartButton.click();
         logger.info("Shopping cart was opened");
     }
+    public void AddToCartButton(){
+        Actions hover = new Actions(DriverProvider.getDriver());
+        hover.moveToElement(rozetkaLogo.getWebElement()).build().perform();
+        buyButton.click();
+
+        logger.info("Item was added to the cart");
+    }
+
+    public int getAmountOfProductsInTheShoppingCart(){
+       int numberOfProductsInTheCart= Integer.parseInt(cartButton.getText());
+       return numberOfProductsInTheCart;
+    }
+
+
 }
 

@@ -20,8 +20,11 @@ public class HomePage extends BasePage {
         catalogButton.click();
     }
 
+    public void openHomePage(String url) {
+        driver.get(url);
+    }
+
     public void searchByKeyword(final String keyword) {
-       // searchInput.clearAndSendKeys(keyword);
         searchInput.sendKeys(keyword, Keys.ENTER);
         logger.info("Product name was written to the searchBox");
     }

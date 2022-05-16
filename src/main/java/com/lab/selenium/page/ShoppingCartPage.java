@@ -16,7 +16,13 @@ public class ShoppingCartPage extends BasePage{
     @FindBy(xpath = "//button[@class='header__button ng-star-inserted header__button--active']")
     private Button shoppingCartButton;
 
+
+
+    @FindBy (xpath = "//button[@class='modal__close']")
+    private Button closeShoppingCartButton;
+
     private final String PRICE = "//div[@class='cart-receipt__sum-price']/span[1]";
+
 
 
     public String getPriceOfItem () {
@@ -28,5 +34,17 @@ public class ShoppingCartPage extends BasePage{
         logger.info("The price of product was taken");
         return priceOfItem;
     }
+//    public void closeShoppingCart(){
+//        closeShoppingCartButton.click();
+//    }
+
+    public void closeShoppingCart(){
+        if (isElementPresent()) {
+            closeShoppingCartButton.click();
+        }
+    }
+   private Boolean isElementPresent() {
+        return closeShoppingCartButton.isElementPresent();
+   }
 
 }
