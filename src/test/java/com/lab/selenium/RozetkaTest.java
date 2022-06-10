@@ -24,7 +24,7 @@ public class RozetkaTest extends  BaseTest {
 
 
     @Test(dataProvider = "filters")
-    public void checkThatThePriceOFProductHigherThanGivenPrice(Filter filter) {
+    public void checkThatThePriceOFProductHigherThanGivenPrice(Filter filter) throws InterruptedException {
         NavigationActions navigationActions = new NavigationActions();
         SearchingActions searchingActions = new SearchingActions();
         FilteringActions filteringActions = new FilteringActions();
@@ -32,7 +32,7 @@ public class RozetkaTest extends  BaseTest {
         PriceAsserter priceAsserter = new PriceAsserter();
         navigationActions.navigateToHomePage();
         searchingActions.searchProduct(filter.getName());
-        filteringActions.filteringProduct(filter.getBrand());
+       // filteringActions.filteringProduct(filter.getBrand());
         buyActions.buyItem();
         priceAsserter.compareThatThePriceHigherThenGivenSum(filter.getSum());
 

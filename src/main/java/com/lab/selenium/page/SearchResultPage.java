@@ -26,7 +26,7 @@ public class SearchResultPage extends BasePage {
     @FindBy(xpath = "//a[@data-id='%s']")
     private Button BrandBox;
 
-    @FindBy(xpath = "//*[contains(text(), ' От дорогих к дешевым ')]")
+    @FindBy(xpath = "//*[@class='select-css ng-pristine ng-valid ng-star-inserted ng-touched']//*[@class='ng-star-inserted'] [2]")
     private Button fromHighToLowPrice;
 
     @FindBy(xpath = "//select[@class='select-css ng-untouched ng-pristine ng-valid ng-star-inserted']")
@@ -59,7 +59,7 @@ public class SearchResultPage extends BasePage {
     }
 
 
-    public void sortingFromHighToLowPrice() {
+    public void sortingFromHighToLowPrice() throws InterruptedException {
         fromHighToLowPrice.click();
         fromHighToLowPrice.click();
         //driver.findElement(xpath(FROM_HIGH_TO_LOW_PRICE)).click();

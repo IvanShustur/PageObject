@@ -25,5 +25,4 @@ public class BaseTest {
             return false;
         }
     }
-
 }
